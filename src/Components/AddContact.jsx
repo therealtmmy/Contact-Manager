@@ -2,11 +2,25 @@ import React from "react"
 
 class AddContact extends React.Component {
     state = {
+        image: "",
         name: "",
         email: "",
         phoneNumber: "",
         address: ""
     }
+
+    handleImage = (e) => {
+            const imageFile = e.target.files[0];
+            if (imageFile) {
+            const imageUrl = URL.createObjectURL(imageFile);
+            this.setState({
+                image: imageUrl,
+            }); 
+
+            
+            }
+   
+        }
 
     add = (e) => {
         e.preventDefault();
@@ -16,15 +30,27 @@ class AddContact extends React.Component {
         } 
 
         this.props.addContactHandler(this.state);
-        this.setState({name: "", email: "", phoneNumber: "", address: ""})
+        this.setState({image: "", name: "", email: "", phoneNumber: "", address: ""})
+        
     }
 
     render() {
+        const {image} = this.setState
+
         return (
             <>
             <div className="ui main">
                 <h2 style={{marginTop: "50px"}}>Add Contact</h2>
                 <form className="ui form" onSubmit={this.add}>
+                     <div className="field">
+                        <label>Upload Image</label>
+                        <input 
+                        type="file" 
+                        name="image"
+                        accept="image/*"
+                        onChange={this.handleImage}
+                        />
+                    </div>
                     <div className="field">
                         <label>Name</label>
                         <input 

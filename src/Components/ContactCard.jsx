@@ -2,7 +2,7 @@ import React from "react"
 
 const ContactCard = (props) => {
 
-    const {id, name, email, phoneNumber, address} = props.contact;
+    const {id, image, name, email, phoneNumber, address} = props.contact;
 
     const styledIcon = {
         paddingLeft: "77em",
@@ -13,7 +13,7 @@ const ContactCard = (props) => {
 
     return (
         <div className="item">
-             <img className="ui avatar image" src="https://www.iconpacks.net/icons/2/free-user-icon-3296-thumb.png" alt="userIcon" />
+             <img className="ui avatar image" src={image}alt="userIcon" />
         <div className="content">
             <div className="header">{name}</div>
             <div>{email}</div>
