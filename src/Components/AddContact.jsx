@@ -16,8 +16,6 @@ class AddContact extends React.Component {
             this.setState({
                 image: imageUrl,
             }); 
-
-            
             }
    
         }
@@ -48,6 +46,7 @@ class AddContact extends React.Component {
                         type="file" 
                         name="image"
                         accept="image/*"
+                        autocomplete="off"
                         onChange={this.handleImage}
                         />
                     </div>
@@ -56,6 +55,7 @@ class AddContact extends React.Component {
                         <input 
                         type="text" 
                         name="name"
+                        autocomplete="off"
                         value = {this.state.name}
                         onChange={(e) => this.setState({name: e.target.value})}
                         placeholder="Name"
@@ -66,6 +66,7 @@ class AddContact extends React.Component {
                         <input 
                         type="email" 
                         name="email"
+                        autocomplete="off"
                         value = {this.state.email}
                         onChange={(e) => this.setState({email: e.target.value})}
                         placeholder="Email"
@@ -76,6 +77,7 @@ class AddContact extends React.Component {
                         <input 
                         type="text" 
                         name="phone number"
+                        autocomplete="off"
                         value = {this.state.phoneNumber}
                         onChange={(e) => this.setState({phoneNumber: e.target.value})}
                         placeholder="Phone Number"
@@ -86,6 +88,7 @@ class AddContact extends React.Component {
                         <input 
                         type="text" 
                         name="address"
+                        autocomplete="off"
                         value = {this.state.address}
                         onChange={(e) => this.setState({address: e.target.value})}
                         placeholder="Address"
