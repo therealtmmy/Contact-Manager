@@ -5,7 +5,9 @@ import AddContact from "./AddContact";
 import ContactList from "./ContactList";
 
 function App() {
-  const [contacts, setContacts] = useState([]);
+  const [contacts, setContacts] = useState(
+    JSON.parse(localStorage.getItem("contacts"))
+  );
 
   const addContactHandler = (contact) => {
     console.log(contact);
@@ -14,12 +16,12 @@ function App() {
     setContacts([...contacts, newContacts]);
   };
 
-  useEffect(() => {
-    const contacts = JSON.parse(localStorage.getItem("contacts"));
-    if (contacts) {
-      setContacts(contacts);
-    }
-  }, []);
+  // useEffect(() => {
+  //   const contacts = JSON.parse(localStorage.getItem("contacts"));
+  //   if (contacts) {
+  //     setContacts(contacts);
+  //   }
+  // }, []);
 
   useEffect(() => {
     localStorage.setItem("contacts", JSON.stringify(contacts));
